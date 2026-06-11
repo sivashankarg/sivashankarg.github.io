@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siva Shankar G | Senior Packet Core Engineer</title>
+<meta name="description" content="Siva Shankar G — Senior Packet Core Engineer (L2). 7 years in Mobile Core Networks: 4G LTE EPC, 5G NSA/SA, IMS, NFV, Kubernetes.">
+<style>
+:root{
+  --bg:#060a12;--bg2:#0a101c;--panel:#0d1524;--line:#16233a;
+  --cyan:#00e5ff;--green:#00ff9d;--amber:#ffb547;--violet:#7c6cff;
+  --txt:#c8d6e8;--dim:#6b7f99;--mono:'Courier New',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+::selection{background:var(--cyan);color:#000}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 6vw;background:rgba(6,10,18,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--mono);color:var(--cyan);font-weight:bold;font-size:1.05rem;letter-spacing:1px}
+.logo span{color:var(--green)}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{color:var(--dim);text-decoration:none;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+nav a:hover{color:var(--cyan)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cyan);font-size:1.2rem;padding:4px 10px;border-radius:4px;cursor:pointer}
+
+/* ---------- HERO ---------- */
+header{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;z-index:2;padding:90px 20px 40px;max-width:900px}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;color:var(--green);
+  border:1px solid rgba(0,255,157,.3);padding:6px 14px;border-radius:20px;background:rgba(0,255,157,.06);margin-bottom:22px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,157,.5)}50%{box-shadow:0 0 0 7px rgba(0,255,157,0)}}
+h1{font-size:clamp(2.2rem,6vw,4rem);color:#fff;letter-spacing:1px}
+h1 b{background:linear-gradient(90deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.term{font-family:var(--mono);font-size:clamp(.95rem,2.4vw,1.25rem);color:var(--cyan);margin:18px 0 8px;min-height:1.6em}
+.term::before{content:'~$ ';color:var(--green)}
+.cursor{display:inline-block;width:9px;background:var(--cyan);animation:blink .8s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.sub{color:var(--dim);font-size:.95rem;max-width:620px;margin:14px auto 30px;line-height:1.7}
+.cta{display:inline-block;margin:6px;padding:13px 32px;border-radius:6px;font-family:var(--mono);font-size:.9rem;
+  text-decoration:none;letter-spacing:1px;transition:.25s}
+.cta.p{background:linear-gradient(90deg,var(--cyan),var(--green));color:#031018;font-weight:bold}
+.cta.p:hover{box-shadow:0 0 25px rgba(0,229,255,.45);transform:translateY(-2px)}
+.cta.s{border:1px solid var(--cyan);color:var(--cyan)}
+.cta.s:hover{background:rgba(0,229,255,.08)}
+
+/* ---------- SECTIONS ---------- */
+section{max-width:1100px;margin:0 auto;padding:90px 6vw 30px}
+h2{font-family:var(--mono);color:#fff;font-size:1.5rem;margin-bottom:8px}
+h2::before{content:'// ';color:var(--green)}
+.bar-under{width:64px;height:3px;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:2px;margin-bottom:36px}
+
+/* ---------- STATS ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 18px;text-align:center;transition:.25s}
+.stat:hover{border-color:var(--cyan);transform:translateY(-4px)}
+.stat .n{font-family:var(--mono);font-size:2.3rem;color:var(--cyan);font-weight:bold}
+.stat .l{color:var(--dim);font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-top:6px}
+
+/* ---------- TIMELINE ---------- */
+.tl{position:relative;margin-left:14px;padding-left:34px;border-left:2px solid var(--line)}
+.tl-item{position:relative;margin-bottom:46px;opacity:0;transform:translateY(24px);transition:.7s}
+.tl-item.vis{opacity:1;transform:none}
+.tl-item::before{content:'';position:absolute;left:-43px;top:6px;width:14px;height:14px;border-radius:50%;
+  background:var(--bg);border:3px solid var(--cyan);box-shadow:0 0 12px rgba(0,229,255,.7)}
+.tl-date{font-family:var(--mono);color:var(--green);font-size:.8rem;letter-spacing:1px}
+.tl-item h3{color:#fff;margin:6px 0 2px;font-size:1.15rem}
+.tl-co{color:var(--cyan);font-size:.9rem;margin-bottom:12px}
+.tl-item ul{list-style:none}
+.tl-item li{color:var(--dim);font-size:.9rem;line-height:1.7;padding-left:18px;position:relative;margin-bottom:6px}
+.tl-item li::before{content:'▸';position:absolute;left:0;color:var(--green)}
+
+/* ---------- SKILLS ---------- */
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.sk-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px}
+.sk-card h3{font-family:var(--mono);color:var(--cyan);font-size:.95rem;margin-bottom:18px}
+.sk{margin-bottom:14px}
+.sk .row{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:6px}
+.sk .row b{color:var(--txt);font-weight:500}
+.sk .row span{font-family:var(--mono);color:var(--green)}
+.track{height:6px;background:#101a2c;border-radius:3px;overflow:hidden}
+.fill{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{font-family:var(--mono);font-size:.75rem;color:var(--cyan);border:1px solid var(--line);padding:6px 12px;border-radius:14px;background:rgba(0,229,255,.04)}
+
+/* ---------- PROJECTS ---------- */
+.pj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.pj{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px;position:relative;overflow:hidden;transition:.25s}
+.pj::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--violet))}
+.pj:hover{transform:translateY(-5px);border-color:var(--cyan);box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.pj .ic{font-size:1.7rem;margin-bottom:12px}
+.pj h3{color:#fff;font-size:1.05rem;margin-bottom:10px}
+.pj p{color:var(--dim);font-size:.88rem;line-height:1.7;margin-bottom:14px}
+.pj .tag{display:inline-block;font-family:var(--mono);font-size:.7rem;color:var(--amber);border:1px solid rgba(255,181,71,.3);
+  border-radius:10px;padding:3px 9px;margin:2px}
+
+/* ---------- CONTACT / FOOTER ---------- */
+.contact-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:40px;text-align:center}
+.contact-box p{color:var(--dim);max-width:520px;margin:10px auto 26px;line-height:1.7}
+.links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.lnk{font-family:var(--mono);font-size:.85rem;color:var(--cyan);text-decoration:none;border:1px solid var(--line);
+  padding:11px 20px;border-radius:6px;transition:.2s}
+.lnk:hover{border-color:var(--cyan);background:rgba(0,229,255,.07)}
+footer{text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;padding:38px 20px;border-top:1px solid var(--line);margin-top:80px}
+.reveal{opacity:0;transform:translateY(26px);transition:.7s}
+.reveal.vis{opacity:1;transform:none}
+
+@media(max-width:720px){
+  nav ul{position:fixed;top:56px;right:0;flex-direction:column;background:var(--bg2);width:210px;padding:18px;
+    border:1px solid var(--line);border-radius:0 0 0 10px;transform:translateX(110%);transition:.3s}
+  nav ul.open{transform:none}
+  .burger{display:block}
+  .tl{margin-left:4px;padding-left:24px}
+  .tl-item::before{left:-33px}
+  .contact-box{padding:26px 16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">SIVA<span>@</span>CORE:~#</div>
+  <button class="burger" onclick="document.getElementById('m').classList.toggle('open')">≡</button>
+  <ul id="m">
+    <li><a href="#about">About</a></li>
+    <li><a href="#exp">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <canvas id="net"></canvas>
+  <div class="hero-in">
+    <div class="status"><span class="dot"></span>NODE STATUS: OPERATIONAL · 99.99% UPTIME</div>
+    <h1>SIVA <b>SHANKAR</b> G</h1>
+    <div class="term"><span id="type"></span><span class="cursor">&nbsp;</span></div>
+    <p class="sub">Senior Packet Core Engineer (L2) · ~7 years keeping large-scale mobile core networks alive across
+      Ericsson, Nokia &amp; Huawei stacks — 4G LTE EPC, 5G NSA/SA, IMS, and cloud-native network functions.</p>
+    <a class="cta p" href="#contact">Establish Connection</a>
+    <a class="cta s" href="#exp">Trace Route ↓</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2>system_overview</h2><div class="bar-under"></div>
+  <div class="stats">
+    <div class="stat"><div class="n"><span class="cnt" data-t="7">0</span>+</div><div class="l">Years in Telecom</div></div>
+    <div class="stat"><div class="n"><span class="cnt" data-t="2">0</span>M+</div><div class="l">Subscribers Migrated</div></div>
+    <div class="stat"><div class="n"><span class="cnt" data-t="99.99" data-d="2">0</span>%</div><div class="l">Service Availability</div></div>
+    <div class="stat"><div class="n"><span class="cnt" data-t="3">0</span></div><div class="l">Vendor Ecosystems</div></div>
+  </div>
+</section>
+
+<section id="exp">
+  <h2>experience_log</h2><div class="bar-under"></div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-date">JAN 2024 — PRESENT</div>
+      <h3>Core Network Specialist — L2</h3>
+      <div class="tl-co">SAMAX (Client: OneWeb) · Chennai, India</div>
+      <ul>
+        <li>Lead L2 fault management for global packet core ops — MME, SPGW &amp; vEPC nodes for high-value enterprise clients.</li>
+        <li>Deep-dive Wireshark signaling analysis: attach failures, dedicated bearer issues, throughput degradation.</li>
+        <li>Execute high-risk change requests — node upgrades, parameter tuning, patching — with zero downtime.</li>
+        <li>Integrate new Satcom/LTE sites with RAN teams: S1-MME / S1-U verification, TAC definition.</li>
+        <li>Mentor L1 associates on call-flow analysis, alarm correlation, and MOPs.</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">MAY 2019 — DEC 2023</div>
+      <h3>AM Engineer / Core FM L1</h3>
+      <div class="tl-co">UST Global (Client: TPG Telecom Oceania) · Chennai, India</div>
+      <ul>
+        <li>SPOC for major network outages — coordinated vendor bridges (Ericsson/Nokia) with internal management.</li>
+        <li>24/7 monitoring of Ericsson packet core (SGS-MME, EPG) and IMS; alarm escalation &amp; restoration within SLA.</li>
+        <li>Cut MTTR via cross-domain alarm correlation in Ericsson OSS-RC and Netcool.</li>
+        <li>Resolved international data roaming faults via GTP/Diameter trace analysis (NetScout, Iris).</li>
+        <li>Supported physical-to-VNF transition on OpenStack with seamless failover testing.</li>
+        <li>Authored RCAs and knowledge-base articles to prevent incident recurrence.</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2019</div>
+      <h3>B.E. Mechanical Engineering</h3>
+      <div class="tl-co">Sri Sairam Institute of Technology · Chennai</div>
+      <ul><li>Engineering foundation; pivoted into telecom core network operations.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>capability_matrix</h2><div class="bar-under"></div>
+  <div class="sk-grid">
+    <div class="sk-card"><h3>[ CORE NETWORK ]</h3>
+      <div class="sk"><div class="row"><b>LTE EPC (MME/SGW/PGW/HSS/PCRF)</b><span>95%</span></div><div class="track"><div class="fill" data-w="95"></div></div></div>
+      <div class="sk"><div class="row"><b>5G NSA/SA (AMF·SMF·UPF)</b><span>85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+      <div class="sk"><div class="row"><b>IMS / VoLTE / VoWiFi</b><span>88%</span></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+      <div class="sk"><div class="row"><b>Protocol Analysis (Wireshark)</b><span>92%</span></div><div class="track"><div class="fill" data-w="92"></div></div></div>
+    </div>
+    <div class="sk-card"><h3>[ SIGNALING &amp; TRANSPORT ]</h3>
+      <div class="sk"><div class="row"><b>GTPv2-C / S1AP / Diameter</b><span>93%</span></div><div class="track"><div class="fill" data-w="93"></div></div></div>
+      <div class="sk"><div class="row"><b>GTP-U / PFCP (Sx/N4)</b><span>88%</span></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+      <div class="sk"><div class="row"><b>SCTP / TCP-IP / OSPF / BGP</b><span>80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+      <div class="sk"><div class="row"><b>Multi-vendor Ops (E///, Nokia, Huawei)</b><span>90%</span></div><div class="track"><div class="fill" data-w="90"></div></div></div>
+    </div>
+    <div class="sk-card"><h3>[ CLOUD &amp; VIRTUALIZATION ]</h3>
+      <div class="sk"><div class="row"><b>NFV / VNF Lifecycle Mgmt</b><span>85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+      <div class="sk"><div class="row"><b>OpenStack</b><span>75%</span></div><div class="track"><div class="fill" data-w="75"></div></div></div>
+      <div class="sk"><div class="row"><b>Kubernetes / Docker (CNF)</b><span>70%</span></div><div class="track"><div class="fill" data-w="70"></div></div></div>
+      <div class="sk"><div class="row"><b>RHEL / Linux Ops</b><span>82%</span></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+    </div>
+  </div>
+  <div class="chips reveal">
+    <span class="chip">Ericsson SGS-MME · EPG · SAPC</span><span class="chip">Nokia CMM · CMG · NetAct · NFMP</span>
+    <span class="chip">Huawei USN · UGW</span><span class="chip">NetScout · Iris · Polystar</span>
+    <span class="chip">Splunk · Datadog · Netcool</span><span class="chip">ServiceNow · BMC Remedy</span>
+    <span class="chip">VMware vSphere</span><span class="chip">SRVCC · EN-DC · Option 3x</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>deployment_history</h2><div class="bar-under"></div>
+  <div class="pj-grid">
+    <div class="pj reveal"><div class="ic">☁️</div>
+      <h3>Legacy EPC → vEPC Migration</h3>
+      <p>Key role migrating 2M+ subscribers from physical Cisco/Ericsson nodes to a virtualized OpenStack environment — Heat template config, VNF instantiation (vMME, vSPGW), and post-migration health checks with zero packet loss.</p>
+      <span class="tag">OpenStack</span><span class="tag">Heat</span><span class="tag">vMME/vSPGW</span><span class="tag">KPI</span>
+    </div>
+    <div class="pj reveal"><div class="ic">📡</div>
+      <h3>5G NSA Network Deployment</h3>
+      <p>Configured Option 3x architecture enabling EN-DC dual connectivity; set up S1-U and X2 interfaces between LTE eNodeB and 5G gNodeB; resolved inter-RAT handover failures via drive-test analysis.</p>
+      <span class="tag">5G NSA</span><span class="tag">EN-DC</span><span class="tag">X2/S1-U</span><span class="tag">Handover</span>
+    </div>
+    <div class="pj reveal"><div class="ic">📞</div>
+      <h3>VoLTE Optimization &amp; Roaming</h3>
+      <p>Led international roaming troubleshooting using Global Title analysis; resolved high-priority VoLTE call drops and one-way audio by tracing RTP packet flow in Wireshark.</p>
+      <span class="tag">VoLTE</span><span class="tag">GT Analysis</span><span class="tag">RTP</span><span class="tag">Roaming</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>establish_connection</h2><div class="bar-under"></div>
+  <div class="contact-box reveal">
+    <div class="status"><span class="dot"></span>ACCEPTING NEW CONNECTIONS</div>
+    <p>Open to senior packet core, 5G core, and cloud-native network engineering roles. Handshake initiated — awaiting your SYN.</p>
+    <div class="links">
+      <a class="lnk" href="mailto:shankarsivag1997@gmail.com">✉ shankarsivag1997@gmail.com</a>
+      <a class="lnk" href="tel:+917010960310">☎ +91-7010960310</a>
+      <a class="lnk" href="https://linkedin.com/in/siva-shankar-g" target="_blank" rel="noopener">in/ siva-shankar-g</a>
+      <a class="lnk" href="#">📍 Chennai, India</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Siva Shankar G — packets routed with care. | EOF</footer>
+
+<script>
+/* particle network */
+const cv=document.getElementById('net'),cx=cv.getContext('2d');let W,H,P=[];
+function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
+  P=Array.from({length:Math.min(90,W/14)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5}));}
+rs();addEventListener('resize',rs);
+(function loop(){cx.clearRect(0,0,W,H);
+  for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    cx.fillStyle='rgba(0,229,255,.8)';cx.beginPath();cx.arc(p.x,p.y,1.6,0,7);cx.fill();}
+  for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+    if(d<130){cx.strokeStyle=`rgba(0,229,255,${(1-d/130)*.35})`;cx.lineWidth=.6;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}
+  requestAnimationFrame(loop);})();
+
+/* terminal typing */
+const lines=['whoami → senior_packet_core_engineer','tail -f /var/log/5g_core.log','ping 5g-core.local → 99.99% uptime','kubectl get pods -n packet-core'];
+const t=document.getElementById('type');let li=0,ci=0,del=false;
+(function type(){const s=lines[li];
+  t.textContent=s.slice(0,ci);
+  if(!del&&ci<s.length){ci++;setTimeout(type,55);}
+  else if(!del){del=true;setTimeout(type,1800);}
+  else if(ci>0){ci--;setTimeout(type,22);}
+  else{del=false;li=(li+1)%lines.length;setTimeout(type,350);}})();
+
+/* counters */
+function count(el){const tgt=parseFloat(el.dataset.t),dec=+(el.dataset.d||0),st=performance.now();
+  (function f(n){const p=Math.min((n-st)/1500,1);el.textContent=(tgt*(1-Math.pow(1-p,3))).toFixed(dec);
+    if(p<1)requestAnimationFrame(f);else el.textContent=tgt.toFixed(dec);})(st);}
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+  e.target.classList.add('vis');
+  e.target.querySelectorAll('.cnt').forEach(count);
+  e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
+  io.unobserve(e.target);}),{threshold:.25});
+document.querySelectorAll('.tl-item,.reveal,.stats,.sk-card').forEach(el=>io.observe(el));
+document.querySelectorAll('#m a').forEach(a=>a.onclick=()=>document.getElementById('m').classList.remove('open'));
+</script>
+</body>
+</html>
